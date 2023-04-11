@@ -1,17 +1,1 @@
-
-<p id="notice"></p>
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-     <div class='col-md-3'>
-       <h2>User info</h2>
-       <table class='table'>
-          <% if @user.image.attached? %>
-            <%= image_tag @user.image,size:"100×100" %>
-          <% else %>
-            <%= image_tag "default-image" ,size:"100×100" %>
-          <% end %>
-         </table>
-    </div>
-  </div>
-</div>
-
+<%= render "books/new",user: @user, book: @book%>
