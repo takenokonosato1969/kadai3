@@ -1,6 +1,15 @@
 <main>
-    <p id="notice"></p>
     <div class="container">
+        <div class="errors_explanation">
+        <% if @user.errors.any? %>
+            <h3><%= @user.errors.count %> prohibited this obj from being saved:</h3>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+            <% end %>
+        </div>
 
 
         <div class="row">
