@@ -1,13 +1,1 @@
-<% @books.each do |book| %>
-            <tbody>
-                <tr>
-                    <td>
-                        <%= link_to book_path(book.id) do%>
-                        <%= image_tag book.user.get_profile_image(80,80) %>
-                        <%= book.title %>
-                        <% end %>
-                    </td>
-                    <td><%= book.body %></td>
-                </tr>
-            </tbody>
-            <% end %>
+render :index
