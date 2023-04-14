@@ -16,14 +16,16 @@ before_action :is_matching_book_user, only: [:edit, :update, :destroy]
       redirect_to book_path(@book.id)
 
     else
+      @user = current_user
       @books= Book.all
       render :index
     end
   end
 
   def show
-    @book = Book.find(params[:id])
-    @user = @book.user
+    @book = Book.new
+    @booka = Book.find(params[:id])
+    @user = @booka.user
   end
 
   def edit
@@ -56,7 +58,7 @@ before_action :is_matching_book_user, only: [:edit, :update, :destroy]
   def book_params
     params.require(:book).permit(:title, :body ,:user_id)
   end
-  
+
   def is_matching_book_user
     book = Book.find(params[:id])
     unless book.user_id == current_user.id
